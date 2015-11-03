@@ -1,0 +1,8 @@
+<%= radio_button_tag :user_type, 'user', !(@user.superuser? or @user.admin?), :disabled => (@user == User.current) %>
+<%= label_tag 'user_type_user', 'Usuario' %>
+<br>
+<%= radio_button_tag :user_type, 'superuser', @user.superuser?, :disabled => (@user == User.current) %>
+<%= label_tag 'user_type_superuser', 'Superusuario' %>
+<br>
+<%= radio_button_tag :user_type, 'admin', @user.admin?, :disabled => (@user == User.current) %>
+<%= label_tag 'user_type_admin', 'Administrador' %>
