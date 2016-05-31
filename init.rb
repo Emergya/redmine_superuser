@@ -1,6 +1,7 @@
 require 'superuser/user_patch'
 require 'superuser/users_controller_patch'
 require 'superuser/project_patch'
+require 'superuser/custom_field_patch'
 
 Redmine::Plugin.register :redmine_superuser do
   name 'Redmine Superuser'

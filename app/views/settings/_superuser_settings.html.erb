@@ -5,5 +5,9 @@
 			<label><%=l(:"superuser.view_all_projects")%></label>
 	    	<%= check_box_tag 'settings[view_all_projects]', true, @settings['view_all_projects'].present? %>
 		</p>
+		<p>
+		    <label><%=l(:"superuser.view_all_custom_fields")%></label>
+		    <%= check_box_tag 'settings[view_all_custom_fields]', true, @settings['view_all_custom_fields'].present? %>
+		</p>
 	</fieldset>
 </div>
