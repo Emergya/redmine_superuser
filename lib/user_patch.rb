@@ -18,12 +18,15 @@ module UserPatch
   end
 
   module InstanceMethods
+    # Superusers have all admin permissions except specific ones, like admin menu options
     def allowed_to_with_superuser?(action, context, options={}, &block)
-      if options[:global]
+      if context && context.is_a?(Project)
+        return true if superuser? and context.allows_to?(action)
+      elsif !(context && context.is_a?(Array)) and options[:global]
         return true if superuser?
-      else
-        allowed_to_without_superuser?(action, context, options={}, &block)
       end
+
+      allowed_to_without_superuser?(action, context, options, &block)
     end
   end
 end
