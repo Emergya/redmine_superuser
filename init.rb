@@ -1,5 +1,6 @@
-require 'user_patch'
-require 'users_controller_patch'
+require 'superuser/user_patch'
+require 'superuser/users_controller_patch'
+require 'superuser/project_patch'
 
 Redmine::Plugin.register :redmine_superuser do
   name 'Redmine Superuser'
@@ -9,4 +10,6 @@ Redmine::Plugin.register :redmine_superuser do
   author_url 'http://www.emergya.es'
 
   requires_redmine_plugin :redmine_base_deface, :version_or_higher => '0.0.1'
+
+  settings :default => {}, :partial => 'settings/superuser_settings'
 end

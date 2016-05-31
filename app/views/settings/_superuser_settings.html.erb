@@ -1,0 +1,9 @@
+<div>
+	<fieldset>
+		<legend><%=l(:"superuser.label_permissions")%></legend>
+		<p>
+			<label><%=l(:"superuser.view_all_projects")%></label>
+	    	<%= check_box_tag 'settings[view_all_projects]', true, @settings['view_all_projects'].present? %>
+		</p>
+	</fieldset>
+</div>

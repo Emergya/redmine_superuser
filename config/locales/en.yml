@@ -1,0 +1,4 @@
+en:
+  superuser:
+    label_permissions: Permissions
+    view_all_projects: View all projects
