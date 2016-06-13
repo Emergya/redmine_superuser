@@ -9,5 +9,9 @@
 		    <label><%=l(:"superuser.view_all_custom_fields")%></label>
 		    <%= check_box_tag 'settings[view_all_custom_fields]', true, @settings['view_all_custom_fields'].present? %>
 		</p>
+		<p>
+		    <label><%=l(:"superuser.manage_members")%></label>
+		    <%= check_box_tag 'settings[manage_members]', true, @settings['manage_members'].present? %>
+		</p>
 	</fieldset>
 </div>

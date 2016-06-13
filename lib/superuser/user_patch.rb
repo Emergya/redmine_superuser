@@ -11,6 +11,7 @@ module Superuser
         unloadable # Send unloadable so it will be reloaded in development
 
         alias_method_chain :allowed_to?, :superuser
+        alias_method_chain :managed_roles, :superuser
       end
     end
 
@@ -29,6 +30,15 @@ module Superuser
 
         allowed_to_without_superuser?(action, context, options, &block)
       end
+
+      # Returns the roles that the user is allowed to manage for the given project
+      def managed_roles_with_superuser(project)
+        if Setting.plugin_redmine_superuser['manage_members'].present? and superuser?
+          @managed_roles ||= Role.givable.to_a
+        else
+          managed_roles_without_superuser(project)
+        end
+      end 
     end
   end
 end
