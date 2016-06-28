@@ -15,7 +15,6 @@ module Superuser
 
     module InstanceMethods
       def create_with_superuser
-        binding.pry
         @user = User.new(:language => Setting.default_language, :mail_notification => Setting.default_notification_option)
 
         # Core method with set_user_type call to set type of user (user/superuser/admin)
