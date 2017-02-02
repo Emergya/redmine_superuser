@@ -6,7 +6,6 @@ module Superuser
 
       # Same as typing in the class
       base.class_eval do
-        unloadable # Send unloadable so it will be reloaded in development
         class << self
           alias_method_chain :allowed_to_condition, :superuser
         end

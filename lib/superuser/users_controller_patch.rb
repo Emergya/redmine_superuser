@@ -7,7 +7,6 @@ module Superuser
       base.extend(ClassMethods)
       base.send(:include, InstanceMethods)
       base.class_eval do
-        unloadable  # Send unloadable so it will be reloaded in development
         alias_method_chain :create, :superuser
         before_filter :set_user_type, :only => [:update]
       end
