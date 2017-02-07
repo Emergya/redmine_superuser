@@ -13,5 +13,9 @@
 		    <label><%=l(:"superuser.manage_members")%></label>
 		    <%= check_box_tag 'settings[manage_members]', true, @settings['manage_members'].present? %>
 		</p>
+		<p>
+		    <label><%=l(:"superuser.access_all_statuses")%></label>
+		    <%= check_box_tag 'settings[access_all_statuses]', true, @settings['access_all_statuses'].present? %>
+		</p>
 	</fieldset>
 </div>
