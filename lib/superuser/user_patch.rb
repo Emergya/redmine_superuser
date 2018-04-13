@@ -21,9 +21,9 @@ module Superuser
       # Superusers have all admin permissions except specific ones, like admin menu options
       def allowed_to_with_superuser?(action, context, options={}, &block)
         if context && context.is_a?(Project)
-          return true if superuser? and context.allows_to?(action)
+          return true if superuser? and context.allows_to?(action) and action != :only_admin
         elsif !(context && context.is_a?(Array)) and options[:global]
-          return true if superuser?
+          return true if superuser? and action != :only_admin
         end
 
         allowed_to_without_superuser?(action, context, options, &block)
