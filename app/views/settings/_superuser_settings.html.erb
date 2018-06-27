@@ -18,4 +18,21 @@
 		    <%= check_box_tag 'settings[access_all_statuses]', true, @settings['access_all_statuses'].present? %>
 		</p>
 	</fieldset>
+
+	<fieldset>
+		<legend><%=l(:"superuser.label_roles_permissions")%></legend>
+		<p>
+			<%
+			options = []
+			Redmine::AccessControl.permissions.each do |permission|
+				options << [l_or_humanize(permission.name, :prefix => 'permission_'), permission.name]
+			end
+			%>
+		    <label><%=l(:"superuser.label_deny_permissions")%></label>
+			<%= select_tag 'settings[roles_permissions]',
+			    options_for_select(options, @settings['roles_permissions']),
+			    :multiple => true,
+			    :size => 10 %>
+		</p>
+	</fieldset>
 </div>

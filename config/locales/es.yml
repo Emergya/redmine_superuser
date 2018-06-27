@@ -5,3 +5,5 @@ es:
     view_all_custom_fields: Ver todos los campos personalizados
     manage_members: Gestionar miembros
     access_all_statuses: Acceder a todos los estados
+    label_roles_permissions: Permisos de perfiles
+    label_deny_permissions: Permisos denegados 
